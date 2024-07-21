@@ -3,6 +3,7 @@ package de.janbnz.bankingapp.account;
 import de.janbnz.bankingapp.transaction.Transaction;
 import de.janbnz.bankingapp.transaction.TransactionRepository;
 import de.janbnz.bankingapp.transaction.TransactionType;
+import de.janbnz.bankingapp.transaction.TransferToSelfException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -53,6 +54,10 @@ public final class AccountService {
     }
 
     public Account transfer(long from, long to, double amount) {
+        if (to == from) {
+            throw new TransferToSelfException("You can't transfer money to yourself");
+        }
+
         final Account fromAccount = this.getAccountByNumber(from);
         final Account toAccount = this.getAccountByNumber(to);
 
