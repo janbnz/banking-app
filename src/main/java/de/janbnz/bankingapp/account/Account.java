@@ -12,6 +12,7 @@ public final class Account {
     private double balance;
 
     public Account(long number, double balance) {
+        this();
         this.number = number;
         this.balance = balance;
     }

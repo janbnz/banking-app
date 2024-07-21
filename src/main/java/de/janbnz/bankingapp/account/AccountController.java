@@ -14,17 +14,22 @@ public final class AccountController {
         this.accountService = accountService;
     }
 
-    @PostMapping("/{number}/deposit")
+    @PostMapping("/deposit/{number}")
     public ResponseEntity<Account> deposit(@PathVariable long number, @RequestBody double amount) {
         return ResponseEntity.ok(this.accountService.deposit(number, amount));
     }
 
-    @PostMapping("/{number}/withdraw")
+    @PostMapping("/withdraw/{number}")
     public ResponseEntity<Account> withdraw(@PathVariable long number, @RequestBody double amount) {
         return ResponseEntity.ok(this.accountService.withdraw(number, amount));
     }
 
-    @GetMapping("/{number}/balance")
+    @PostMapping("/transfer/{from}/{to}")
+    public ResponseEntity<Account> transfer(@PathVariable long from, @PathVariable long to, @RequestBody double amount) {
+        return ResponseEntity.ok(this.accountService.transfer(from, to, amount));
+    }
+
+    @GetMapping("/balance/{number}")
     public ResponseEntity<Double> balance(@PathVariable long number) {
         return ResponseEntity.ok(this.accountService.getBalance(number));
     }
