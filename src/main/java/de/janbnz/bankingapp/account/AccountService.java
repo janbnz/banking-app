@@ -74,8 +74,4 @@ public final class AccountService {
         this.accountRepository.save(new Account(from, fromAccount.getBalance() - amount));
         return this.accountRepository.save(new Account(to, toAccount.getBalance() + amount));
     }
-
-    public double getBalance(long number) {
-        return this.getAccountByNumber(number).getBalance();
-    }
 }

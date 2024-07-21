@@ -31,7 +31,7 @@ public final class AccountController {
     }
 
     @GetMapping("/balance/{number}")
-    public ResponseEntity<Double> balance(@PathVariable long number) {
-        return ResponseEntity.ok(this.accountService.getBalance(number));
+    public ResponseEntity<Account> balance(@PathVariable long number) {
+        return ResponseEntity.ok(this.accountService.getAccountByNumber(number));
     }
 }
