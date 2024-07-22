@@ -45,3 +45,7 @@ This endpoint is used to list all transactions for a specific account.
 ```bash
 curl -X GET http://localhost:8080/transactions/123
 ```
+
+## License
+
+This project is licensed under the [Unlicense](http://unlicense.org/)
