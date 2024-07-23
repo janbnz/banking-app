@@ -43,7 +43,7 @@ This endpoint is used to list all transactions for a specific account.
 `{accountId}` should be replaced with the actual account id.
 
 ```bash
-curl -X GET http://localhost:8080/transactions/123
+curl -X GET http://localhost:8080/transactions/{accountId}
 ```
 
 ## License
